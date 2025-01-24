@@ -52,6 +52,20 @@ func (c *customerService) GetAll(limit, page uint) ([]models.Customer, int, erro
 
 // Update implements CustomerService.
 func (c *customerService) Update(customer *models.Customer) error {
+	if customer.ID == 0 {
+		c.log.Error("Customer ID is required")
+		return errors.New("ID is required")
+	}
+	if customer.NIK == "" {
+		c.log.Error("Customer NIK is required")
+		return errors.New("NIK is required")
+	}
+	if customer.PhoneNumber == "" {
+		c.log.Error("Customer Phone Number is required")
+		return errors.New("phone Number is required")
+	}
+
+	c.log.Info("Updating customer", zap.Uint("ID", customer.ID))
 	return c.repo.Update(customer)
 }
 
