@@ -55,6 +55,28 @@ func NewRoutes(ctx infra.ServiceContext) {
 		membershipRoutes.PUT("/:customer_id", ctx.Ctl.Membership.SetMembership)
 	}
 
+	// driver routes
+	driverRoutes := routes.Group("/driver")
+	{
+		driverRoutes.GET("/", ctx.Ctl.Driver.GetAllDrivers)
+		driverRoutes.GET("/:id", ctx.Ctl.Driver.GetDriver)
+		driverRoutes.POST("/", ctx.Ctl.Driver.CreateDriver)
+		driverRoutes.PUT("/:id", ctx.Ctl.Driver.UpdateDriver)
+		driverRoutes.DELETE("/:id", ctx.Ctl.Driver.DeleteDriver)
+	}
+
+	// driver incentive routes
+	driverIncentiveRoutes := routes.Group("/driver-incentive")
+	{
+		driverIncentiveRoutes.GET("/", ctx.Ctl.DriverIncentive.GetAllDriverIncentives)
+	}
+
+	// booking type routes
+	bookingTypeRoutes := routes.Group("/booking-type")
+	{
+		bookingTypeRoutes.GET("/", ctx.Ctl.BookingType.GetAllBookingTypes)
+	}
+
 	gracefulShutdown(ctx, routes.Handler())
 }
 

@@ -1,6 +1,2 @@
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T23:31:56.877+0800","C":"repositories/booking_repository.go:26","M":"Booking created","Customer ID":3,"Car ID":4,"Datetime":"2025-01-24T23:31:56.870+0800"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T23:31:56.878+0800","C":"controllers/booking_controller.go:39","M":"Created booking","id":9}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T23:32:08.636+0800","C":"controllers/booking_controller.go:116","M":"Successfully retrieved booking","id":9}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T23:32:24.790+0800","C":"repositories/booking_repository.go:26","M":"Booking created","Customer ID":2,"Car ID":5,"Datetime":"2025-01-24T23:32:24.783+0800"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T23:32:24.792+0800","C":"controllers/booking_controller.go:39","M":"Created booking","id":10}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T23:32:28.793+0800","C":"controllers/booking_controller.go:116","M":"Successfully retrieved booking","id":10}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-25T00:22:20.756+0800","C":"repositories/booking_repository.go:37","M":"Booking updated","Customer ID":4,"Car ID":1,"Datetime":"2025-01-25T00:22:20.746+0800"}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-25T00:22:20.758+0800","C":"controllers/booking_controller.go:71","M":"Updated booking","id":9}

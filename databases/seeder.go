@@ -28,8 +28,11 @@ func dataSeed() []interface{} {
 	return []interface{}{
 		// Define your data seeding here
 		seeder.MembershipSeeder(),
+		seeder.BookingTypeSeeder(),
+		seeder.SeedDrivers(),
 		seeder.UserSeeder(),
 		seeder.CarSeeder(),
 		seeder.BookingSeeder(),
+		seeder.SeedDriverIncentives(),
 	}
 }

@@ -39,6 +39,18 @@ func (b *bookingService) Create(booking *models.Booking) error {
 		return errors.New("customer ID is required")
 	}
 
+	if *booking.BookingTypeID <= 0 {
+		b.log.Error("Booking type is required")
+		return errors.New("booking type is required")
+	} else {
+		if *booking.BookingTypeID == 2 {
+			if *booking.DriverID == 0 {
+				b.log.Error("Driver ID is required")
+				return errors.New("driver ID is required")
+			}
+		}
+	}
+
 	return b.repo.Booking.Create(booking)
 }
 
