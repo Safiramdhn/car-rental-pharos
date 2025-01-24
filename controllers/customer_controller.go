@@ -109,6 +109,13 @@ func (ctl *CustomerController) GetAllCustomers(c *gin.Context) {
 		helpers.BadResponse(c, err.Error(), 500)
 		return
 	}
+
+	if customers == nil {
+		ctl.log.Info("No customers found")
+		helpers.GoodResponseWithPage(c, "No customers found", 200, 0, 0, 0, 0, nil)
+		return
+	}
+
 	ctl.log.Info("Get all customers", zap.Uint("page", page), zap.Uint("per_page", limit))
 	totalPage := (countData + int(limit) - 1) / int(limit) // calculate total pages correctly
 	helpers.GoodResponseWithPage(c, "Customers found", 200, countData, totalPage, int(page), int(limit), customers)

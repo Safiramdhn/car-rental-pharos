@@ -38,10 +38,11 @@ func (repo *CustomerRepository) FindAll(limit, page uint) ([]models.Customer, in
 	if err != nil {
 		repo.log.Error("Error finding customers", zap.Error(err))
 		if err == gorm.ErrRecordNotFound {
-			return nil, 0, errors.New("customers not found")
+			return nil, 0, nil
 		}
 		return nil, 0, err
 	}
+
 	err = repo.db.Model(&models.Customer{}).Count(&countData).Error
 	if err != nil {
 		repo.log.Error("Error counting customers", zap.Error(err))
