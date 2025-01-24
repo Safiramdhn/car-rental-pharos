@@ -49,6 +49,12 @@ func NewRoutes(ctx infra.ServiceContext) {
 		bookingRoutes.DELETE("/:id", ctx.Ctl.Booking.DeleteBooking)
 	}
 
+	// membership routes
+	membershipRoutes := routes.Group("/membership")
+	{
+		membershipRoutes.PUT("/:customer_id", ctx.Ctl.Membership.SetMembership)
+	}
+
 	gracefulShutdown(ctx, routes.Handler())
 }
 

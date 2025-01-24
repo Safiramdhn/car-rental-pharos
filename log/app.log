@@ -1,5 +1,2 @@
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:40:28.078+0800","C":"repositories/booking_repository.go:26","M":"Booking created","Customer ID":1,"Car ID":1,"Datetime":"2025-01-24T21:40:28.061+0800"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:40:28.081+0800","C":"controllers/booking_controller.go:39","M":"Created booking","id":9}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:40:48.081+0800","C":"repositories/booking_repository.go:37","M":"Booking updated","Customer ID":1,"Car ID":2,"Datetime":"2025-01-24T21:40:48.074+0800"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:40:48.082+0800","C":"controllers/booking_controller.go:71","M":"Updated booking","id":9}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:41:22.540+0800","C":"controllers/car_controller.go:110","M":"Get car","id":"2"}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T23:16:43.573+0800","C":"services/membership_service.go:30","M":"Updating customer membership","ID":3,"MembershipID":0}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T23:16:43.583+0800","C":"repositories/customer_repository.go:74","M":"Customer updated","Name":"Hugo Fleming","Datetime":"2025-01-24T23:16:43.576+0800"}

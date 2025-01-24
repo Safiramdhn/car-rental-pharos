@@ -6,15 +6,17 @@ import (
 )
 
 type Repository struct {
-	Customer CustomerRepository
-	Car      CarRepository
-	Booking  BookingRepository
+	Customer   CustomerRepository
+	Car        CarRepository
+	Booking    BookingRepository
+	Membership MembershipRepository
 }
 
 func NewRepository(db *gorm.DB, log *zap.Logger) Repository {
 	return Repository{
-		Customer: *NewCustomerRepository(db, log),
-		Car:      *NewCarRepository(db, log),
-		Booking:  *NewBookingRepository(db, log),
+		Customer:   *NewCustomerRepository(db, log),
+		Car:        *NewCarRepository(db, log),
+		Booking:    *NewBookingRepository(db, log),
+		Membership: *NewMembershipRepository(db, log),
 	}
 }
