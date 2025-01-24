@@ -7,10 +7,12 @@ import (
 
 type Repository struct {
 	Customer CustomerRepository
+	Car      CarRepository
 }
 
 func NewRepository(db *gorm.DB, log *zap.Logger) Repository {
 	return Repository{
 		Customer: *NewCustomerRepository(db, log),
+		Car:      *NewCarRepository(db, log),
 	}
 }

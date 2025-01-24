@@ -8,10 +8,12 @@ import (
 
 type Service struct {
 	Customer CustomerService
+	Car      CarService
 }
 
 func NewService(repo repositories.Repository, log *zap.Logger) *Service {
 	return &Service{
 		Customer: NewCustomerService(repo.Customer, log),
+		Car:      NewCarService(repo.Car, log),
 	}
 }
