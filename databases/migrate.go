@@ -1,6 +1,10 @@
 package databases
 
-import "gorm.io/gorm"
+import (
+	"car-rental/models"
+
+	"gorm.io/gorm"
+)
 
 func migrateDB(db *gorm.DB) error {
 	var err error
@@ -15,9 +19,13 @@ func migrateDB(db *gorm.DB) error {
 }
 
 func autoMigrates(db *gorm.DB) error {
-	return db.AutoMigrate()
+	return db.AutoMigrate(
+		&models.Customer{},
+	)
 }
 
 func dropTables(db *gorm.DB) error {
-	return db.Migrator().DropTable()
+	return db.Migrator().DropTable(
+		&models.Customer{},
+	)
 }

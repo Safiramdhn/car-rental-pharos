@@ -27,7 +27,7 @@ func InitLogger(cfg config.Config) (*zap.Logger, error) {
 		EncodeCaller:   zapcore.ShortCallerEncoder,
 	}
 
-	file, err := os.Create("app.log")
+	file, err := os.Create("../log/app.log")
 	if err != nil {
 		log.Panicf("Failed to create log file: %v", err)
 		return nil, err

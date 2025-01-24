@@ -11,6 +11,8 @@ type Config struct {
 	AppDebug bool
 	Port     string
 	DB       DBConfig
+
+	ShutdownTimeout int
 }
 
 type DBConfig struct {
@@ -48,8 +50,9 @@ func NewConfig() (Config, error) {
 	readFlags()
 
 	config := Config{
-		AppDebug: viper.GetBool("APP_DEBUG"),
-		Port:     viper.GetString("PORT"),
+		AppDebug:        viper.GetBool("APP_DEBUG"),
+		Port:            viper.GetString("PORT"),
+		ShutdownTimeout: viper.GetInt("SHUTDOWN_TIMEOUT"),
 		DB: DBConfig{
 			Host:     viper.GetString("DB_HOST"),
 			Port:     viper.GetString("DB_PORT"),
@@ -67,6 +70,7 @@ func NewConfig() (Config, error) {
 func setDefaultValue() {
 	viper.SetDefault("APP_DEBUG", true)
 	viper.SetDefault("PORT", "8080")
+	viper.SetDefault("SHUTDOWN_TIMEOUT", 5)
 	viper.SetDefault("DB_HOST", "localhost")
 	viper.SetDefault("DB_PORT", "5432")
 	viper.SetDefault("DB_USER", "root")
