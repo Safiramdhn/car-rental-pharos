@@ -12,12 +12,15 @@ import (
 )
 
 type Booking struct {
-	ID         uint           `json:"id" gorm:"primaryKey;unique;not null"`
-	CustomerID uint           `json:"customer_id" gorm:"not null" binding:"required"`
-	CarID      uint           `json:"car_id" gorm:"not null" binding:"required"`
+	ID         uint `json:"id" gorm:"primaryKey;unique;not null"`
+	CustomerID uint `json:"customer_id" gorm:"not null" binding:"required"`
+	// Customer        Customer       `gorm:"foreignKey:CustomerID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE"`
+	CarID uint `json:"car_id" gorm:"not null" binding:"required"`
+	// Car             Car            `gorm:"foreignKey:CarID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE"`
 	StartRent  time.Time      `json:"start_rent" gorm:"type:date;not null" binding:"required"`
 	EndRent    time.Time      `json:"end_rent" gorm:"type:date;not null" binding:"required,gtfield=StartRent"`
 	TotalCost  float64        `json:"total_cost" gorm:"type:numeric"`
+	Discount   *float64       `json:"discount" gorm:"type:numeric"` // Optional
 	IsFinished bool           `json:"is_finished" gorm:"default:false"`
 	CreatedAt  time.Time      `gorm:"autoCreateTime;<-:create" json:"created_at"`
 	UpdatedAt  time.Time      `gorm:"autoUpdateTime" json:"updated_at"`
@@ -73,6 +76,20 @@ func (b *Booking) BeforeCreate(tx *gorm.DB) (err error) {
 		b.IsFinished = false
 	}
 
+	// check customer membership discount
+	var customer Customer
+	if err := tx.Preload("Membership").First(&customer, b.CustomerID).Error; err != nil {
+		log.Printf("Failed to get customer with ID %d: %v", b.CustomerID, err)
+		return err
+	}
+	if customer.Membership != nil && customer.Membership.Discount > 0 {
+		discount := b.TotalCost * (float64(customer.Membership.Discount) / 100)
+		b.Discount = &discount
+	} else {
+		zero := 0.0
+		b.Discount = &zero
+	}
+
 	return nil
 }
 
@@ -94,6 +111,20 @@ func (b *Booking) BeforeUpdate(tx *gorm.DB) (err error) {
 		b.IsFinished = true
 	} else {
 		b.IsFinished = false
+	}
+
+	// check customer membership discount
+	var customer Customer
+	if err := tx.Preload("Membership").First(&customer, b.CustomerID).Error; err != nil {
+		log.Printf("Failed to get customer with ID %d: %v", b.CustomerID, err)
+		return err
+	}
+	if customer.Membership != nil && customer.Membership.Discount > 0 {
+		discount := b.TotalCost * (float64(customer.Membership.Discount) / 100)
+		b.Discount = &discount
+	} else {
+		zero := 0.0
+		b.Discount = &zero
 	}
 
 	return nil
