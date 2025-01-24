@@ -29,5 +29,6 @@ func dataSeed() []interface{} {
 		// Define your data seeding here
 		seeder.UserSeeder(),
 		seeder.CarSeeder(),
+		seeder.BookingSeeder(),
 	}
 }

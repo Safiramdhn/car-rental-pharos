@@ -1,14 +1,5 @@
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:15:50.396+0800","C":"services/car_service.go:34","M":"Creating new car","Name":"Hyundai Palisade"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:15:50.431+0800","C":"repositories/car_repository.go:26","M":"Car created","Name":"Hyundai Palisade","Datetime":"2025-01-24T18:15:50.407+0800"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:15:50.432+0800","C":"controllers/car_controller.go:37","M":"Created car","id":16}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:15:53.562+0800","C":"controllers/car_controller.go:110","M":"Get car","id":"16"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:15:59.380+0800","C":"services/car_service.go:68","M":"Updating car","Name":"Hyundai Palisade"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:15:59.384+0800","C":"repositories/car_repository.go:37","M":"Car updated","Name":"Hyundai Palisade","Datetime":"2025-01-24T18:15:59.382+0800"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:15:59.385+0800","C":"controllers/car_controller.go:66","M":"Updated car","id":16}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:16:05.643+0800","C":"controllers/car_controller.go:110","M":"Get car","id":"16"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:17:10.134+0800","C":"repositories/car_repository.go:80","M":"Car deleted","ID":16}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:17:10.134+0800","C":"controllers/car_controller.go:87","M":"Deleted car","id":16}
-{"L":"\u001b[31mERROR\u001b[0m","T":"2025-01-24T18:17:15.897+0800","C":"repositories/car_repository.go:65","M":"Error finding car","error":"record not found"}
-{"L":"\u001b[31mERROR\u001b[0m","T":"2025-01-24T18:17:15.898+0800","C":"controllers/car_controller.go:104","M":"Error getting car","error":"record not found"}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:17:30.930+0800","C":"repositories/car_repository.go:57","M":"Cars found","Count":15}
-{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T18:17:30.930+0800","C":"controllers/car_controller.go:128","M":"Get all cars","count":15}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:40:28.078+0800","C":"repositories/booking_repository.go:26","M":"Booking created","Customer ID":1,"Car ID":1,"Datetime":"2025-01-24T21:40:28.061+0800"}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:40:28.081+0800","C":"controllers/booking_controller.go:39","M":"Created booking","id":9}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:40:48.081+0800","C":"repositories/booking_repository.go:37","M":"Booking updated","Customer ID":1,"Car ID":2,"Datetime":"2025-01-24T21:40:48.074+0800"}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:40:48.082+0800","C":"controllers/booking_controller.go:71","M":"Updated booking","id":9}
+{"L":"\u001b[34mINFO\u001b[0m","T":"2025-01-24T21:41:22.540+0800","C":"controllers/car_controller.go:110","M":"Get car","id":"2"}

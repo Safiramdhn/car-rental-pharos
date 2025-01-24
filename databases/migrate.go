@@ -22,6 +22,7 @@ func autoMigrates(db *gorm.DB) error {
 	return db.AutoMigrate(
 		&models.Customer{},
 		&models.Car{},
+		&models.Booking{},
 	)
 }
 
@@ -29,5 +30,6 @@ func dropTables(db *gorm.DB) error {
 	return db.Migrator().DropTable(
 		&models.Customer{},
 		&models.Car{},
+		&models.Booking{},
 	)
 }
